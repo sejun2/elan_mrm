@@ -5298,7 +5298,11 @@ if(Map = 1)
 OpenMap()
 Sleep, 100
 }
+Move_Map()
+Sleep, 100
+OpenMap()
 PostClick(520, 208)
+Check_Map()
     Sleep, 15000
     KeyClick("CTRL9")
     Sleep, 1000
@@ -5311,8 +5315,17 @@ PostClick(520, 208)
     msgbox, %category% %CCD%
 
     ;¼­ÆÄ
-    OpenMap()
-    PostClick(207, 480)
+Check_Map()
+if(Map = 1)
+{
+OpenMap()
+Sleep, 100
+}
+Move_Map()
+Sleep, 100
+OpenMap()
+PostClick(207, 480)
+Check_Map()
     Sleep, 30000
     KeyClick("CTRL0")
     Sleep, 1000
@@ -5324,7 +5337,7 @@ PostClick(520, 208)
     msgbox, %category% %CCD%
     
 
-step = 20
+step := 20
 }
 
 if(Step = 20)
