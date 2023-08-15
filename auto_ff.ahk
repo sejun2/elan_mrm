@@ -17762,7 +17762,7 @@ Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 알파동파
 {
-AAD = %A_LoopReadLine%
+AAD := %A_LoopReadLine%
 break
 }
 }
@@ -17770,7 +17770,7 @@ Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 알파서파
 {
-AAS = %A_LoopReadLine%
+AAS := %A_LoopReadLine%
 break
 }
 }
@@ -17787,7 +17787,7 @@ Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 베타동파
 {
-BAD = %A_LoopReadLine%
+BAD := %A_LoopReadLine%
 break
 }
 }
@@ -17795,7 +17795,7 @@ Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine,베타서파
 {
-BAS = %A_LoopReadLine%
+BAS := %A_LoopReadLine%
 break
 }
 }
@@ -17811,7 +17811,7 @@ Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 감마동파
 {
-GAD = %A_LoopReadLine%
+GAD := %A_LoopReadLine%
 break
 }
 }
@@ -17819,7 +17819,7 @@ Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 감마서파
 {
-GAS = %A_LoopReadLine%
+GAS := %A_LoopReadLine%
 break
 }
 }
@@ -18149,15 +18149,15 @@ getServer(){
 
         IfInString,Location,알파
         {
-        server = 알파
+        server := 알파
         }
         IfInString,Location,베타
         {
-        server = 베타
+        server := 베타
         }
         IfInString,Location,감마
         {
-        server = 감마 
+        server := 감마 
         }
 }
 ATKM()
