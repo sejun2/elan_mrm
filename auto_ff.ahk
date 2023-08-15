@@ -5268,19 +5268,23 @@ if(Map = 1)
 OpenMap()
 Sleep, 100
 }
+
+MsgBox, ,  "7777직전"
 Get_Location()
 npcidResult := getNpcidFromFile()
 
 if(npcidResult = true)
 {
-    Step := 20
+    Step = 20
 }
 else{
-    Step := 7777
+    Step = 7777
 }
 }
 
 if(Step = 7777){
+
+MsgBox, ,  "7777호출"
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
     ; get npcid 
     if(Gui_KON = 1)
@@ -5324,6 +5328,7 @@ GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
 
 if(Step = 20)
 {
+MsgBox, ,  "step20call"
 GuiControl, , Gui_NowState, [포남] 움직임 체크 중
 Check_Moving()
 Get_Pos()
