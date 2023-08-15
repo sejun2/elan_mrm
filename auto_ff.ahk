@@ -17858,7 +17858,7 @@ return true
 ; npcID = npcID
 setNpcidToFile(ser, npcCategory, npcID){
     ;write to file
-    FileAppend, %server%%npcCategory% = %npcID%`n, c:\log.txt
+    FileAppend, %ser%%npcCategory% = %npcID%`n, c:\log.txt
 }
 
 SkinForm(Param1 = "Apply", DLL = "", SkinName = "")
@@ -18154,22 +18154,24 @@ Sleep, 200
 }
 }
 getServer(){
-    Get_Location()
+Get_Location()
 
-        IfInString,Location,알파
-        {
-        npcServer := 알파
-        }
-        IfInString,Location,베타
-        {
-        npcServer := 베타
-        }
-        IfInString,Location,감마
-        {
-        npcServer := 감마 
-        }
+msgbox, "GetServer" :: %Location%
 
-        msgbox, npcServer %npcServer%
+IfInString,Location,알파
+{
+npcServer := 알파
+}
+IfInString,Location,베타
+{
+npcServer := 베타
+}
+IfInString,Location,감마
+{
+npcServer := 감마 
+}
+
+        msgbox, GetServer npcServer :: %npcServer%
 }
 ATKM()
 {
