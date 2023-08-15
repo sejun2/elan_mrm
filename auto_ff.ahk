@@ -17743,7 +17743,24 @@ return
 
 ; if return true, npcID is in file for server
 ; if return false, npcID is not in file for server
-getNpcidFromFile(server){
+getNpcidFromFile(){
+
+Get_Location()
+
+IfInString,Location,알파
+{
+    server := "alpha"
+}
+
+IfInString,Location,베타
+{
+    server := "beta"
+}
+
+IfInString,Location,감마
+{
+    server := "gamma"
+}
 
 if(server = "alpha"){
 Loop,Read, c:\log.txt
