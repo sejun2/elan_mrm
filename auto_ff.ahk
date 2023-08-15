@@ -5272,8 +5272,6 @@ Sleep, 100
 Get_Location()
 npcidResult := getNpcidFromFile()
 
-msgbox, npcidResult%npcidResult%
-
 if(npcidResult = true)
 {
     Step = 20
@@ -17851,6 +17849,8 @@ StringMid, BAS, BAS, 7, 11
 StringMid, GAD, GAD, 7, 11
 StringMid, GAS, GAS, 7, 11
 
+msgbox, %AAD% %AAS% %BAD% %BAS% %GAD% %GAS%
+
 return true
 }
 
@@ -18157,23 +18157,19 @@ getServer(){
 
 IfInString,Location,알파
 {
-msgbox, 알파 들어있음
 npcServer = 알파
 }
 
 IfInString,Location,베타
 {
-msgbox, 베타 들어있음
 npcServer = 베타
 }
 
 IfInString,Location,감마
 {
-msgbox, 감마 들어있음
 npcServer = 감마 
 }
 
-        msgbox, npcServer %npcServer%
 }
 ATKM()
 {
