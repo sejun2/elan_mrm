@@ -5288,7 +5288,6 @@ GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
   
     sleep, 1000
 
-    msgbox, 서버%npcServer%
     
     ;동파
 Check_Map()
@@ -5299,9 +5298,18 @@ Sleep, 100
 }
 Move_Map()
 Sleep, 100
+OpenMap()
 PostClick(480,204)
-PostClick(100, 100)
-    OpenMap()
+PostClick(348,206)
+OpenMap()
+Sleep, 500
+Check_Map()
+if(Map = 1)
+{
+OpenMap()
+Sleep, 100
+}
+
     Sleep, 20000
     KeyClick("CTRL9")
     Sleep, 1000
@@ -5310,8 +5318,6 @@ PostClick(100, 100)
     category = 동파
     setNpcidToFile(npcServer, category ,CCD)    
     sleep, 2500
-
-    msgbox, %npcServer%%category% %CCD%
 
     ;서파
 Check_Map()
@@ -5322,9 +5328,19 @@ Sleep, 100
 }
 Move_Map()
 Sleep, 100
-PostClick(480,204)
-PostClick(200, 200)
 OpenMap()
+PostClick(480,204)
+PostClick(100,16)
+OpenMap()
+Sleep, 500
+Check_Map()
+if(Map = 1)
+{
+OpenMap()
+Sleep, 100
+}
+
+
     Sleep, 50000
     KeyClick("CTRL0")
     Sleep, 1000
@@ -5333,8 +5349,6 @@ OpenMap()
     setNpcidToFile(npcServer, category ,CCD)    
     sleep, 2500
 
-    msgbox, %npcServer% %category% %CCD%
-    
 
 step = 20
 }
