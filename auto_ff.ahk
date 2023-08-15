@@ -17774,8 +17774,6 @@ return
 ; if return false, npcID is not in file for server
 getNpcidFromFile(){
 
-getServer()
-
 if(npcServer = ¾ËÆÄ){
 Loop,Read, c:\log.txt
 {
