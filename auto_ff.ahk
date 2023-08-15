@@ -5301,12 +5301,13 @@ Sleep, 100
 Move_Map()
 Sleep, 100
 OpenMap()
+PostClick(480,204)
 PostClick(520, 208)
 Check_Map()
     Sleep, 15000
     KeyClick("CTRL9")
     Sleep, 1000
-    Check_OID_Sex()
+    Check_OID()
     
     category = 동파
     setNpcidToFile(server, category ,CCD)    
@@ -5324,12 +5325,13 @@ Sleep, 100
 Move_Map()
 Sleep, 100
 OpenMap()
+PostClick(480,204)
 PostClick(207, 480)
 Check_Map()
     Sleep, 30000
     KeyClick("CTRL0")
     Sleep, 1000
-    Check_OID_Sex()
+    Check_OID()
     category = 서파
     setNpcidToFile(server, category ,CCD)    
     sleep, 2500
