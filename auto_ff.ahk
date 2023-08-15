@@ -5284,7 +5284,7 @@ else{
 if(Step = 7777){
 
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
-   Get_Location()
+   getServer()
    
     msgbox,, 서버%server%
     
@@ -5299,9 +5299,9 @@ PostClick(520, 208)
     Sleep, 15000
     KeyClick("CTRL9")
     Sleep, 1000
-    Check_OID_Char()
+    Check_OID_Sex()
     
-    category := %server%동파
+    category = 동파
     setNpcidToFile(server, category ,CCD)    
     sleep, 2500
 
@@ -5313,8 +5313,8 @@ PostClick(520, 208)
     Sleep, 30000
     KeyClick("CTRL0")
     Sleep, 1000
-    Check_OID_Char()
-    category := %server%서파
+    Check_OID_Sex()
+    category = 서파
     setNpcidToFile(server, category ,CCD)    
     sleep, 2500
 
@@ -13310,9 +13310,9 @@ Check_Moving()
 {
 Moving := jelan.read(0x0058EB1C, "UInt", 0x174)
 }
-Check_OID_Char()
+Check_OID_Sex()
 {
-CCD := jelan.read(0x00584C2C, "Uchar", aOffsets*)
+CCD := ReadMemory(0x00584C2C)
 }
 Check_OID()
 {
@@ -17752,24 +17752,9 @@ return
 ; if return false, npcID is not in file for server
 getNpcidFromFile(){
 
-Get_Location()
+getServer()
 
-IfInString,Location,알파
-{
-    server := "alpha"
-}
-
-IfInString,Location,베타
-{
-    server := "beta"
-}
-
-IfInString,Location,감마
-{
-    server := "gamma"
-}
-
-if(server = "alpha"){
+if(server = 알파){
 Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 알파동파
@@ -17792,7 +17777,7 @@ if(AAD = "" || AAS = "" ){
 }
 }
 
-if(server = "beta"){
+if(server = 베타){
 Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 베타동파
@@ -17815,7 +17800,7 @@ if(BAD = "" || BAS = "" ){
 }
 }
 
-if(server = "gamma"){
+if(server = 감마){
 Loop,Read, c:\log.txt
 {
 ifinstring, A_LoopReadLine, 감마동파
@@ -18399,6 +18384,33 @@ postmessage, 0x101, 37, 21692417, ,%WindowTitle%
 sleep, 1
 }
 }
+}
+
+ReadMemory(MADDRESS=0, BYTES=4){
+PROGRAM:= WindowTitle
+Static OLDPROC, ProcessHandle
+VarSetCapacity(buffer, BYTES)
+If (PROGRAM != OLDPROC){
+if ProcessHandle
+closed := DllCall("CloseHandle", "UInt", ProcessHandle), ProcessHandle := 0, OLDPROC := ""
+if PROGRAM{
+WinGet, pid, pid, % OLDPROC := PROGRAM
+if !pid
+return "Process Doesn't Exist", OLDPROC := ""
+ProcessHandle := DllCall("OpenProcess", "Int", 16, "Int", 0, "UInt", pid)
+}
+}
+If !(ProcessHandle && DllCall("ReadProcessMemory", "UInt", ProcessHandle, "UInt", MADDRESS, "Ptr", &buffer, "UInt", BYTES, "Ptr", 0))
+return !ProcessHandle ? "Handle Closed: " closed : "Fail"
+else if (BYTES = 1)
+Type := "UChar"
+else if (BYTES = 2)
+Type := "UShort"
+else if (BYTES = 4)
+Type := "UInt"
+else
+Type := "Int64"
+return numget(buffer, 0, Type)
 }
 MIC()
 {
