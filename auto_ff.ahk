@@ -565,8 +565,9 @@ Return, this.SizeOfStructure
 }
 }
 }
-global jelan,jPID,jTitle,pwb,MapNumber,RunDirect,NowDate,Version,lov,identt,bann,byte,bytes,server
+global jelan,jPID,jTitle,pwb,MapNumber,RunDirect,NowDate,Version,lov,identt,bann,byte,bytes
 global Location,MsgMacro,State,Inven,Buy,Repair,Ras,SelectRas,Map,AAD,MapSize,GAD,Weapon,Chat,Attack,Mount,NPCMenu,AAS,PosX,PosY,MovePosX,MCC,BAI,MovePosY,NowHP,HCC,AAI,MaxHP,NowMP,MaxMP,NowFP,MaxFP,Gold,AGI,FormNumber,NPCMsg,NPCMenuBuyPosX,SCC,CTC,NPCMenuBuyPosY,DCC,NPCMenuRepairPosX,BAD,NPCMenuRepairPosY,rCTC,AbilityNameADD,SSC,AbilityValueADD,BAS,AbilityName,SSS,AbilityValue,Moving,Slot1Ability,GAI,SST,Slot2Ability,Slot3Ability,GAS,Slot4Ability,HPPercent,FPPercent,Shield,StatePosX,StatePosY,CheckFirstHP,CheckUPHP,RunningTime,ChangeValue,MagicN,Slot1Ability,Slot2Ability,Slot3Ability,Slot4Ability,Slot5Ability,Slot6Ability,Slot7Ability,Slot8Ability,Slot9Ability,Slot10Ability,Slot11Ability,Slot12Ability,Slot13Ability,Slot14Ability,Slot15Ability,Slot16Ability,Slot17Ability,Slot18Ability,Slot19Ability,Slot20Ability,Slot1AN,Slot2AN,Slot3AN,Slot4AN,Slot5AN,Slot6AN,Slot7AN,Slot8AN,Slot9AN,Slot10AN,Slot11AN,Slot12AN,Slot13AN,Slot14AN,Slot15AN,Slot16AN,Slot17AN,Slot18AN,Slot19AN,Slot20AN,CritHP,CritMP,Get_CharOID,CharID_1,CharID_2,CharID_3,CharID_4,CharID_5,CharID_6,ChangeValue,pP1,pP2,pP3,pP4,pP5,pP6,P1,P2,P3,P4,P5,P6,loady,ProgramStartTime,RPST,RPST,BasicWValue0,BasicWValue1,BasicWValue2,BasicWValue3,BWValue0,BWValue1,BWValue2,BWValue3,RMNS,MNS,RMNN,Slot3MN,Slot4MN,Slot5MN,Slot6MN,Slot7MN,Slot8MN,Slot3Magic,Slot4Magic,Slot5Magic,Slot6Magic,Slot7Magic,Slot8Magic,MLimit,incinerateitem,RowNumber,inciNumber = 1,inciItem,CCD,CheckPB,newTime1,nowtime1,nowtime,RCC,pbtalkcheck1,pbtalkcheck2
+global server
 Gui, -MaximizeBox -MinimizeBox
 Gui, Add, Tab, x0 y4 w690 h670, 설정|Ability|Utility
 Gui, Add, Checkbox, x590 y2 w110 h18  vGui_relogerror, 재접속 오류
@@ -5272,6 +5273,8 @@ Sleep, 100
 Get_Location()
 npcidResult := getNpcidFromFile()
 
+msgbox, npcidResult%npcidResult%
+
 if(npcidResult = true)
 {
     Step = 20
@@ -5286,7 +5289,7 @@ if(Step = 7777){
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
    getServer()
    
-    msgbox,, 서버%server%
+    msgbox, 서버%server%
     
     ;동파
 Check_Map()
@@ -17772,6 +17775,8 @@ break
 }
 }
 
+msgbox, %AAD% %AAS%
+
 if(AAD = "" || AAS = "" ){
     return false
 }
@@ -17795,6 +17800,7 @@ break
 }
 }
 
+msgbox, %BAD% %BAS%
 if(BAD = "" || BAS = "" ){
     return false
 }
@@ -17817,6 +17823,8 @@ GAS = %A_LoopReadLine%
 break
 }
 }
+
+msgbox, %GAD% %GAS%
 
 if(GAD = "" || GAS = "" ){
     return false
