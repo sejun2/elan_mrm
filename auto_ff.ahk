@@ -18158,19 +18158,19 @@ getServer(){
 IfInString,Location,알파
 {
 msgbox, 알파 들어있음
-npcServer := 알파
+npcServer = 알파
 }
 
 IfInString,Location,베타
 {
 msgbox, 베타 들어있음
-npcServer := 베타
+npcServer = 베타
 }
 
 IfInString,Location,감마
 {
 msgbox, 감마 들어있음
-npcServer := 감마 
+npcServer = 감마 
 }
 
         msgbox, npcServer %npcServer%
