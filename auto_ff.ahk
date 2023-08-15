@@ -18495,6 +18495,12 @@ bytes := ComObjGet("winmgmts:") .ExecQuery("Select * from Win32_PerfFormattedDat
 byte := bytes/1024
 Return
 }
+F10::
+getServer()
+Return
+F9::
+getNpcidFromFile()
+Return
 F11::
 Pause
 Return
