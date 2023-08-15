@@ -5321,7 +5321,6 @@ PostClick(520, 208)
     msgbox,, %category% %CCD%
 
     ;¼­ÆÄ
-    207, 480
     OpenMap()
     PostClick(207, 480)
     Sleep, 30000
