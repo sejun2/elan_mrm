@@ -5330,7 +5330,7 @@ Move_Map()
 Sleep, 100
 OpenMap()
 PostClick(480,204)
-PostClick(100,16)
+PostClick(348,155)
 OpenMap()
 Sleep, 500
 Check_Map()
