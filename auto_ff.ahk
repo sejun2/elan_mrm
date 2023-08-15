@@ -4227,8 +4227,8 @@ WPdisablescript()
 incineratescript()
 Run, *RunAs MRMSPH.exe
 WinWait, ahk_exe MRMSPH.exe, , 15
-Run, *RunAs helan.exe
-WinWait, ahk_exe helan.exe, , 15
+;Run, *RunAs helan.exe
+;WinWait, ahk_exe helan.exe, , 15
 Sleep, 2000
 WinHide, MRMSPH
 SetFormat, integer, h
@@ -4243,7 +4243,7 @@ if(Gui_2ButMuba = 1)
 {
 BWValue0 := ReadAbility("∞›≈ı")
 }
-BWValue1 := ReadAbility(Gui_Weapon1)
+BWValue2 := ReadAbility(Gui_Weapon1)
 }
 if(Gui_2Muba = 1 or Gui_3ButMuba = 1)
 {
