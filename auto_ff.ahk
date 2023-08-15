@@ -17792,6 +17792,11 @@ getNpcidFromFile(){
 if(npcServer = 알파){
 Loop,Read, c:\log.txt
 {
+ifinstring, A_LoopReadLine, 알파동파 = 0x0
+{
+    return false
+}
+
 ifinstring, A_LoopReadLine, 알파동파
 {
 AAD := %A_LoopReadLine%
@@ -17815,6 +17820,10 @@ if(AAD = "" || AAS = "" ){
 if(npcServer = 베타){
 Loop,Read, c:\log.txt
 {
+ifinstring, A_LoopReadLine, 베타동파 = 0x0
+{
+    return false
+}
 ifinstring, A_LoopReadLine, 베타동파
 {
 BAD := %A_LoopReadLine%
@@ -17838,6 +17847,10 @@ if(BAD = "" || BAS = "" ){
 if(npcServer = 감마){
 Loop,Read, c:\log.txt
 {
+ifinstring, A_LoopReadLine, 감마동파 = 0x0
+{
+    return false
+}
 ifinstring, A_LoopReadLine, 감마동파
 {
 GAD := %A_LoopReadLine%
