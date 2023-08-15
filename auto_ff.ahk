@@ -18141,15 +18141,15 @@ getServer(){
 
         IfInString,Location,알파
         {
-        server := 알파
+        server = 알파
         }
         IfInString,Location,베타
         {
-        server := 베타
+        server = 베타
         }
         IfInString,Location,감마
         {
-           server := 감마 
+        server = 감마 
         }
 }
 ATKM()
