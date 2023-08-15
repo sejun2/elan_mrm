@@ -18155,7 +18155,6 @@ Sleep, 200
 }
 }
 getServer(){
-Get_Location()
 
 IfInString,Location,¾ËÆÄ
 {
