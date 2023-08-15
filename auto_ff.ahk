@@ -5287,11 +5287,11 @@ else{
 if(Step = 7777){
 
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
-   mServer := getServer()
+   getServer()
   
     sleep, 1000
 
-    msgbox, 서버%mServer%
+    msgbox, 서버%npcServer%
     
     ;동파
 Check_Map()
@@ -5313,10 +5313,10 @@ Check_Map()
     Check_OID()
     
     category = 동파
-    setNpcidToFile(mServer, category ,CCD)    
+    setNpcidToFile(npcServer, category ,CCD)    
     sleep, 2500
 
-    msgbox, %mServer%%category% %CCD%
+    msgbox, %npcServer%%category% %CCD%
 
     ;서파
 Check_Map()
@@ -5337,7 +5337,7 @@ Check_Map()
     Sleep, 1000
     Check_OID()
     category = 서파
-    setNpcidToFile(mServer, category ,CCD)    
+    setNpcidToFile(npcServer, category ,CCD)    
     sleep, 2500
 
     msgbox, %npcServer% %category% %CCD%
@@ -18156,21 +18156,20 @@ Sleep, 200
 getServer(){
 Get_Location()
 
-msgbox, "GetServer" :: %Location%
-
-IfInString,Location,알파
+IfInString,%Location%,알파
 {
- return 알파
+npcServer := 알파
 }
-IfInString,Location,베타
+IfInString,%Location%,베타
 {
-return 베타
+npcServer := 베타
 }
-IfInString,Location,감마
+IfInString,%Location%,감마
 {
-return 감마
+npcServer := 감마 
 }
 
+        msgbox, npcServer %npcServer%
 }
 ATKM()
 {
@@ -18494,13 +18493,6 @@ bytes := ComObjGet("winmgmts:") .ExecQuery("Select * from Win32_PerfFormattedDat
 byte := bytes/1024
 Return
 }
-F10::
-result := getServer()
-msgbox, server = %result%
-Return
-F9::
-getNpcidFromFile()
-Return
 F11::
 Pause
 Return
