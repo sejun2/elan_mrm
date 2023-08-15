@@ -5303,8 +5303,7 @@ OpenMap()
 PostClick(480,204)
 PostClick(520, 178)
 Check_Map()
-Check_Map()
-    Sleep, 15000
+    Sleep, 20000
     KeyClick("CTRL9")
     Sleep, 1000
     Check_OID()
@@ -5326,10 +5325,9 @@ Move_Map()
 Sleep, 100
 OpenMap()
 PostClick(480,204)
-PostClick(207, 450)
+PostClick(207, 440)
 Check_Map()
-Check_Map()
-    Sleep, 30000
+    Sleep, 50000
     KeyClick("CTRL0")
     Sleep, 1000
     Check_OID()
