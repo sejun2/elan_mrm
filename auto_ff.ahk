@@ -5288,7 +5288,9 @@ if(Step = 7777){
 
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
    getServer()
-   
+  
+    sleep. 1000
+
     msgbox, 서버%npcServer%
     
     ;동파
@@ -18156,6 +18158,8 @@ Sleep, 200
 getServer(){
     Get_Location()
 
+msgbox, Location %Location%
+
         IfInString,Location,알파
         {
         npcServer := 알파
@@ -18168,6 +18172,8 @@ getServer(){
         {
         npcServer := 감마 
         }
+
+        msgbox, npcServer %npcServer%
 }
 ATKM()
 {
