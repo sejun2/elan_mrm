@@ -17769,6 +17769,7 @@ end::
 pause
 return
 
+global npcServer
 
 ; if return true, npcID is in file for server
 ; if return false, npcID is not in file for server
@@ -18156,15 +18157,17 @@ Sleep, 200
 getServer(){
 Get_Location()
 
-IfInString,%Location%,알파
+IfInString,Location,알파
 {
 npcServer := 알파
 }
-IfInString,%Location%,베타
+
+IfInString,Location,베타
 {
 npcServer := 베타
 }
-IfInString,%Location%,감마
+
+IfInString,Location,감마
 {
 npcServer := 감마 
 }
