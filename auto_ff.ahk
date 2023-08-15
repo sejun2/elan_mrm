@@ -18158,17 +18158,15 @@ Sleep, 200
 getServer(){
     Get_Location()
 
-msgbox, Location %Location%
-
-        IfInString,Location,[알파차원] 포프레스네 남쪽
+        IfInString,Location,알파
         {
         npcServer := 알파
         }
-        IfInString,Location,[베타차원] 포프레스네 남쪽
+        IfInString,Location,베타
         {
         npcServer := 베타
         }
-        IfInString,Location,[감마차원] 포프레스네 남쪽
+        IfInString,Location,감마
         {
         npcServer := 감마 
         }
