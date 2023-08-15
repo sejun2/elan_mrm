@@ -5181,7 +5181,7 @@ if(NPCTalkTime >= 5000)
 {
 AltR()
 Sleep, 1000
-;ipmak += 1
+ipmak += 1
 FileAppend, %FormNumber%`,%NPCMsg%`n, Mlog.txt
 Step = 13
 return
@@ -5268,8 +5268,60 @@ if(Map = 1)
 OpenMap()
 Sleep, 100
 }
-Step = 20
+Get_Location()
+npcidResult := getNpcidFromFile()
+
+if(npcidResult = true)
+{
+    Step := 20
 }
+else{
+    Step := 7777
+}
+}
+
+if(Step = 7777){
+GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
+    ; get npcid 
+    if(Gui_KON = 1)
+        IfInString,Location,알파
+        {
+            value := jelan.write(0x00527B1C, AAD, "UInt")
+            Sleep, 50
+            value := jelan.write(0x00527B1C, AAD, "UInt")
+            Sleep, 50
+            setNpcidToFile()
+        }
+        IfInString,Location,베타
+        {
+            value := jelan.write(0x00527B1C, BAD, "UInt")
+            Sleep, 50
+            value := jelan.write(0x00527B1C, BAD, "UInt")
+            Sleep, 50
+            setNpcidToFile()
+        }
+        IfInString,Location,감마
+        {
+            value := jelan.write(0x00527B1C, GAD, "UInt")
+            Sleep, 50
+            value := jelan.write(0x00527B1C, GAD, "UInt")
+            Sleep, 50
+            setNpcidToFile()
+        }
+    
+    
+    ;동파
+    
+    ;서파
+
+    ; success get npcid
+    if(success){
+        Step = 20
+    }else{
+        Gosub, resetting
+    }
+}
+
 if(Step = 20)
 {
 GuiControl, , Gui_NowState, [포남] 움직임 체크 중
@@ -18087,6 +18139,226 @@ U3 := Substr(ATKValue3, 1, 14)
 writememory2("0x"U1, Addrs, PID)
 writememory2("0x"U2, Addrs+7, PID)
 writememory2("0x"U3, Addrs+14, PID)
+}
+KeyClick(Key){
+if(Key = "AltR"){
+loop, 1 {
+PostMessage, 0x100, 18, 540540929,, %WindowTitle%
+PostMessage, 0x100, 82, 1245185,, %WindowTitle%
+PostMessage, 0x101, 82, 1245185,, %WindowTitle%
+PostMessage, 0x101, 18, 540540929,, %WindowTitle%
+sleep, 1
+}
+}
+else if(Key = "Space"){
+loop, 1 {
+PostMessage, 0x100, 32, 3735553,, %WindowTitle%
+PostMessage, 0x101, 32, 3735553,, %WindowTitle%
+}
+}
+else if(Key = "Tab"){
+loop, 1 {
+PostMessage, 0x100, 9, 983041,, %WindowTitle%
+PostMessage, 0x101, 9, 983041,, %WindowTitle%
+}
+}
+else if(Key = "Alt2"){
+loop, 1 {
+PostMessage, 0x100, 18, 540540929,, %WindowTitle%
+postmessage, 0x100, 50, 196609, ,%WindowTitle%
+postmessage, 0x101, 50, 196609, ,%WindowTitle%
+PostMessage, 0x101, 18, 540540929,, %WindowTitle%
+sleep, 1
+}
+}
+else if(Key=1){
+loop, 1 {
+postmessage, 0x100, 49, 131073, ,%WindowTitle%
+postmessage, 0x101, 49, 131073, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=2) {
+loop, 1 {
+postmessage, 0x100, 50, 196609, ,%WindowTitle%
+postmessage, 0x101, 50, 196609, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=3) {
+loop, 1 {
+postmessage, 0x100, 51, 262145, ,%WindowTitle%
+postmessage, 0x101, 51, 262145, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=4) {
+loop, 1 {
+postmessage, 0x100, 52, 327681, ,%WindowTitle%
+postmessage, 0x101, 52, 327681, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=5){
+loop, 1{
+postmessage, 0x100, 53, 393217, ,%WindowTitle%
+postmessage, 0x101, 53, 393217, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=6){
+loop, 1{
+postmessage, 0x100, 54, 458753, ,%WindowTitle%
+postmessage, 0x101, 54, 458753, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=7){
+loop, 1{
+postmessage, 0x100, 55, 524289, ,%WindowTitle%
+postmessage, 0x101, 55, 524289, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=8){
+loop, 1{
+postmessage, 0x100, 56, 589825, ,%WindowTitle%
+postmessage, 0x101, 56, 589825, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=9){
+loop, 1{
+postmessage, 0x100, 57, 655361, ,%WindowTitle%
+postmessage, 0x101, 57, 655361, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key=0){
+loop, 1{
+postmessage, 0x100, 48, 720897, ,%WindowTitle%
+postmessage, 0x101, 48, 720897, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL1"){
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 49, 131073, ,%WindowTitle%
+postmessage, 0x101, 49, 131073, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL2"){
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 50, 196609, ,%WindowTitle%
+postmessage, 0x101, 50, 196609, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL3") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 51, 262145, ,%WindowTitle%
+postmessage, 0x101, 51, 262145, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL4") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 52, 327681, ,%WindowTitle%
+postmessage, 0x101, 52, 327681, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL5") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 53, 393217, ,%WindowTitle%
+postmessage, 0x101, 53, 393217, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL6") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 54, 458753, ,%WindowTitle%
+postmessage, 0x101, 54, 458753, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL7") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 55, 524289, ,%WindowTitle%
+postmessage, 0x101, 55, 524289, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL8") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 56, 589825, ,%WindowTitle%
+postmessage, 0x101, 56, 589825, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL9") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 57, 655361, ,%WindowTitle%
+postmessage, 0x101, 57, 655361, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="CTRL0") {
+loop, 1 {
+postmessage, 0x100, 17, 1900545, ,%WindowTitle%
+postmessage, 0x100, 48, 720897, ,%WindowTitle%
+postmessage, 0x101, 48, 720897, ,%WindowTitle%
+postmessage, 0x101, 17, 1900545, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="DownArrow") {
+loop, 1 {
+postmessage, 0x100, 40, 22020097, ,%WindowTitle%
+postmessage, 0x101, 40, 22020097, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="UpArrow") {
+loop, 1 {
+postmessage, 0x100, 38, 21495809, ,%WindowTitle%
+postmessage, 0x101, 38, 21495809, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="RightArrow") {
+loop, 1 {
+postmessage, 0x100, 39, 21823489, ,%WindowTitle%
+postmessage, 0x101, 39, 21823489, ,%WindowTitle%
+sleep, 1
+}
+}
+else if(Key="LeftArrow") {
+loop, 1 {
+postmessage, 0x100, 37, 21692417, ,%WindowTitle%
+postmessage, 0x101, 37, 21692417, ,%WindowTitle%
+sleep, 1
+}
+}
 }
 MIC()
 {
