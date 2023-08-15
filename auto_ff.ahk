@@ -13333,8 +13333,10 @@ CCD := ReadMemory(0x00584C2C)
 }
 Check_OID()
 {
+SetFormat,integer, H
 CCD := jelan.read(0x00584C2C, "UInt", aOffsets*)
 msgbox, checkOID :: %CCD%
+SetFormat,integer, d
 }
 Check_State()
 {
