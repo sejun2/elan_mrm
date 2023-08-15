@@ -5289,7 +5289,7 @@ if(Step = 7777){
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
    getServer()
   
-    sleep. 1000
+    sleep, 1000
 
     msgbox, 서버%npcServer%
     
