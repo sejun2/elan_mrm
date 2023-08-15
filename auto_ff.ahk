@@ -13347,7 +13347,6 @@ Check_OID()
 {
 SetFormat,integer, H
 CCD := jelan.read(0x00584C2C, "UInt", aOffsets*)
-msgbox, checkOID :: %CCD%
 SetFormat,integer, d
 }
 Check_State()
@@ -17862,7 +17861,6 @@ StringMid, BAS, BAS, 7, 11
 StringMid, GAD, GAD, 7, 11
 StringMid, GAS, GAS, 7, 11
 
-msgbox, %AAD% %AAS% %BAD% %BAS% %GAD% %GAS%
 
 return true
 }
