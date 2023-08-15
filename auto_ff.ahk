@@ -5301,8 +5301,8 @@ Move_Map()
 Sleep, 100
 OpenMap()
 PostClick(480,204)
-PostClick(520, 178)
-Check_Map()
+PostClick(100, 100)
+    OpenMap()
     Sleep, 20000
     KeyClick("CTRL9")
     Sleep, 1000
@@ -5325,8 +5325,8 @@ Move_Map()
 Sleep, 100
 OpenMap()
 PostClick(480,204)
-PostClick(207, 440)
-Check_Map()
+PostClick(200, 200)
+    OpenMap()
     Sleep, 50000
     KeyClick("CTRL0")
     Sleep, 1000
@@ -5338,7 +5338,7 @@ Check_Map()
     msgbox, %npcServer% %category% %CCD%
     
 
-step := 20
+step = 20
 }
 
 if(Step = 20)
