@@ -5290,7 +5290,7 @@ GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
             Sleep, 50
             value := jelan.write(0x00527B1C, AAD, "UInt")
             Sleep, 50
-            setNpcidToFile()
+            ;setNpcidToFile()
         }
         IfInString,Location,베타
         {
@@ -5298,7 +5298,7 @@ GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
             Sleep, 50
             value := jelan.write(0x00527B1C, BAD, "UInt")
             Sleep, 50
-            setNpcidToFile()
+            ;setNpcidToFile()
         }
         IfInString,Location,감마
         {
@@ -5306,7 +5306,7 @@ GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
             Sleep, 50
             value := jelan.write(0x00527B1C, GAD, "UInt")
             Sleep, 50
-            setNpcidToFile()
+            ;setNpcidToFile()
         }
     
     
