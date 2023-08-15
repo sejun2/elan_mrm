@@ -5009,6 +5009,7 @@ Step = 14
 if(Step = 14)
 {
 GuiControl, , Gui_NowState, [포남] 움직임 체크 중
+WinKill, ahk_exe helan.exe
 if(Gui_KON = 1)
 {
 Sleep, 300
@@ -5032,6 +5033,7 @@ Step = 15
 if(Step = 15)
 {
 GuiControl, , Gui_NowState, [포남] 캐릭터 위치 체크 중
+WinKill, ahk_exe helan.exe
 Get_Pos()
 if(Gui_KON = 1)
 {
@@ -5081,6 +5083,7 @@ if(Step = 17)
 {
 Get_Location()
 GuiControl, , Gui_NowState, [포남] NPC 대화 중
+WinKill, ahk_exe helan.exe
 Move_NPCTalkForm()
 callid = 1
 if(Gui_KON = 1)
@@ -5274,6 +5277,8 @@ npcidResult := getNpcidFromFile()
 
 if(npcidResult = true)
 {
+Run, *RunAs helan.exe
+WinWait, ahk_exe helan.exe, , 15
     Step = 20
 }
 else{
