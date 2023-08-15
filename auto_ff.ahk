@@ -5299,7 +5299,6 @@ Sleep, 100
 }
 Move_Map()
 Sleep, 100
-OpenMap()
 PostClick(480,204)
 PostClick(100, 100)
     OpenMap()
@@ -5323,10 +5322,9 @@ Sleep, 100
 }
 Move_Map()
 Sleep, 100
-OpenMap()
 PostClick(480,204)
 PostClick(200, 200)
-    OpenMap()
+OpenMap()
     Sleep, 50000
     KeyClick("CTRL0")
     Sleep, 1000
