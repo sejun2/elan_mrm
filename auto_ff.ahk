@@ -5304,7 +5304,7 @@ Move_Map()
 Sleep, 100
 OpenMap()
 PostClick(480,204)
-PostClick(520, 208)
+PostClick(520, 178)
 Check_Map()
 Check_Map()
     Sleep, 15000
@@ -5329,7 +5329,7 @@ Move_Map()
 Sleep, 100
 OpenMap()
 PostClick(480,204)
-PostClick(207, 480)
+PostClick(207, 450)
 Check_Map()
 Check_Map()
     Sleep, 30000
@@ -18160,15 +18160,15 @@ getServer(){
 
 msgbox, Location %Location%
 
-        IfInString,Location,알파
+        IfInString,Location,[알파차원] 포프레스네 남쪽
         {
         npcServer := 알파
         }
-        IfInString,Location,베타
+        IfInString,Location,[베타차원] 포프레스네 남쪽
         {
         npcServer := 베타
         }
-        IfInString,Location,감마
+        IfInString,Location,[감마차원] 포프레스네 남쪽
         {
         npcServer := 감마 
         }
