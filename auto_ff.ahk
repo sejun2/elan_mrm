@@ -5287,11 +5287,11 @@ else{
 if(Step = 7777){
 
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
-   getServer()
+   mServer := getServer()
   
     sleep, 1000
 
-    msgbox, 서버%npcServer%
+    msgbox, 서버%mServer%
     
     ;동파
 Check_Map()
@@ -5313,10 +5313,10 @@ Check_Map()
     Check_OID()
     
     category = 동파
-    setNpcidToFile(npcServer, category ,CCD)    
+    setNpcidToFile(mServer, category ,CCD)    
     sleep, 2500
 
-    msgbox, %npcServer%%category% %CCD%
+    msgbox, %mServer%%category% %CCD%
 
     ;서파
 Check_Map()
@@ -5337,7 +5337,7 @@ Check_Map()
     Sleep, 1000
     Check_OID()
     category = 서파
-    setNpcidToFile(npcServer, category ,CCD)    
+    setNpcidToFile(mServer, category ,CCD)    
     sleep, 2500
 
     msgbox, %npcServer% %category% %CCD%
@@ -18160,18 +18160,17 @@ msgbox, "GetServer" :: %Location%
 
 IfInString,Location,알파
 {
-npcServer := 알파
+ return 알파
 }
 IfInString,Location,베타
 {
-npcServer := 베타
+return 베타
 }
 IfInString,Location,감마
 {
-npcServer := 감마 
+return 감마
 }
 
-        msgbox, GetServer npcServer :: %npcServer%
 }
 ATKM()
 {
@@ -18496,7 +18495,8 @@ byte := bytes/1024
 Return
 }
 F10::
-getServer()
+result := getServer()
+msgbox, server = %result%
 Return
 F9::
 getNpcidFromFile()
