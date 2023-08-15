@@ -5269,7 +5269,6 @@ OpenMap()
 Sleep, 100
 }
 
-MsgBox, ,  "7777직전"
 Get_Location()
 npcidResult := getNpcidFromFile()
 
@@ -5284,22 +5283,10 @@ else{
 
 if(Step = 7777){
 
-MsgBox, ,  "7777호출"
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
-    ; get npcid 
-        IfInString,Location,알파
-        {
-        server := 알파
-        }
-        IfInString,Location,베타
-        {
-        server := 베타
-        }
-        IfInString,Location,감마
-        {
-           server := 감마 
-        }
-    
+   Get_Location()
+   
+    msgbox,, 서버%server%
     
     ;동파
 Check_Map()
@@ -5312,10 +5299,10 @@ PostClick(520, 208)
     Sleep, 15000
     KeyClick("CTRL9")
     Sleep, 1000
-    Check_OID()
+    Check_OID_Char()
     
     category := %server%동파
-    setNpcidToFile(category ,CCD)    
+    setNpcidToFile(server, category ,CCD)    
     sleep, 2500
 
     msgbox,, %category% %CCD%
@@ -5326,9 +5313,9 @@ PostClick(520, 208)
     Sleep, 30000
     KeyClick("CTRL0")
     Sleep, 1000
-    Check_OID()
+    Check_OID_Char()
     category := %server%서파
-    setNpcidToFile(category ,CCD)    
+    setNpcidToFile(server, category ,CCD)    
     sleep, 2500
 
     msgbox,, %category% %CCD%
@@ -13323,6 +13310,10 @@ Check_Moving()
 {
 Moving := jelan.read(0x0058EB1C, "UInt", 0x174)
 }
+Check_OID_Char()
+{
+CCD := jelan.read(0x00584C2C, "Uchar", aOffsets*)
+}
 Check_OID()
 {
 CCD := jelan.read(0x00584C2C, "UInt", aOffsets*)
@@ -17859,9 +17850,9 @@ return true
 
 ; npcCategory = 알파동파, 알파서파, 베타동파, 베타서파, 감마동파, 감마서파
 ; npcID = npcID
-setNpcidToFile(npcCategory, npcID){
+setNpcidToFile(ser, npcCategory, npcID){
     ;write to file
-    FileAppend, %npcCategory% = %npcID%`n, c:\log.txt
+    FileAppend, %server%%npcCategory% = %npcID%`n, c:\log.txt
 }
 
 SkinForm(Param1 = "Apply", DLL = "", SkinName = "")
@@ -18155,6 +18146,22 @@ Poidwrite()
 inviteparty()
 Sleep, 200
 }
+}
+getServer(){
+    Get_Location()
+
+        IfInString,Location,알파
+        {
+        server := 알파
+        }
+        IfInString,Location,베타
+        {
+        server := 베타
+        }
+        IfInString,Location,감마
+        {
+           server := 감마 
+        }
 }
 ATKM()
 {
