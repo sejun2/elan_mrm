@@ -5305,7 +5305,7 @@ PostClick(520, 208)
     setNpcidToFile(server, category ,CCD)    
     sleep, 2500
 
-    msgbox,, %category% %CCD%
+    msgbox, %category% %CCD%
 
     ;서파
     OpenMap()
@@ -5318,7 +5318,7 @@ PostClick(520, 208)
     setNpcidToFile(server, category ,CCD)    
     sleep, 2500
 
-    msgbox,, %category% %CCD%
+    msgbox, %category% %CCD%
     
 
 step = 20
@@ -5326,7 +5326,7 @@ step = 20
 
 if(Step = 20)
 {
-MsgBox, ,  "step20call"
+;MsgBox,   "step20call"
 GuiControl, , Gui_NowState, [포남] 움직임 체크 중
 Check_Moving()
 Get_Pos()
@@ -17836,8 +17836,12 @@ return true
 ; npcCategory = 알파동파, 알파서파, 베타동파, 베타서파, 감마동파, 감마서파
 ; npcID = npcID
 setNpcidToFile(ser, npcCategory, npcID){
+    Num := npcID 
+SetFormat, IntegerFast, hex
+MsgBox % npcID
+
     ;write to file
-    FileAppend, %server%%npcCategory% = %npcID%`n, c:\log.txt
+    FileAppend, %server%%npcCategory% = %Num%`n, c:\log.txt
 }
 
 SkinForm(Param1 = "Apply", DLL = "", SkinName = "")
