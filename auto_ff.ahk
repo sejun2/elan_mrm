@@ -13336,6 +13336,7 @@ CCD := ReadMemory(0x00584C2C)
 Check_OID()
 {
 CCD := jelan.read(0x00584C2C, "UInt", aOffsets*)
+msgbox, checkOID :: %CCD%
 }
 Check_State()
 {
@@ -18493,6 +18494,9 @@ bytes := ComObjGet("winmgmts:") .ExecQuery("Select * from Win32_PerfFormattedDat
 byte := bytes/1024
 Return
 }
+F10::
+Check_OID()
+Return
 F11::
 Pause
 Return
