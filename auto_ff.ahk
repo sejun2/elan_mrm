@@ -565,7 +565,7 @@ Return, this.SizeOfStructure
 }
 }
 }
-global jelan,jPID,jTitle,pwb,MapNumber,RunDirect,NowDate,Version,lov,identt,bann,byte,bytes
+global jelan,jPID,jTitle,pwb,MapNumber,RunDirect,NowDate,Version,lov,identt,bann,byte,bytes,helanOn
 global Location,MsgMacro,State,Inven,Buy,Repair,Ras,SelectRas,Map,AAD,MapSize,GAD,Weapon,Chat,Attack,Mount,NPCMenu,AAS,PosX,PosY,MovePosX,MCC,BAI,MovePosY,NowHP,HCC,AAI,MaxHP,NowMP,MaxMP,NowFP,MaxFP,Gold,AGI,FormNumber,NPCMsg,NPCMenuBuyPosX,SCC,CTC,NPCMenuBuyPosY,DCC,NPCMenuRepairPosX,BAD,NPCMenuRepairPosY,rCTC,AbilityNameADD,SSC,AbilityValueADD,BAS,AbilityName,SSS,AbilityValue,Moving,Slot1Ability,GAI,SST,Slot2Ability,Slot3Ability,GAS,Slot4Ability,HPPercent,FPPercent,Shield,StatePosX,StatePosY,CheckFirstHP,CheckUPHP,RunningTime,ChangeValue,MagicN,Slot1Ability,Slot2Ability,Slot3Ability,Slot4Ability,Slot5Ability,Slot6Ability,Slot7Ability,Slot8Ability,Slot9Ability,Slot10Ability,Slot11Ability,Slot12Ability,Slot13Ability,Slot14Ability,Slot15Ability,Slot16Ability,Slot17Ability,Slot18Ability,Slot19Ability,Slot20Ability,Slot1AN,Slot2AN,Slot3AN,Slot4AN,Slot5AN,Slot6AN,Slot7AN,Slot8AN,Slot9AN,Slot10AN,Slot11AN,Slot12AN,Slot13AN,Slot14AN,Slot15AN,Slot16AN,Slot17AN,Slot18AN,Slot19AN,Slot20AN,CritHP,CritMP,Get_CharOID,CharID_1,CharID_2,CharID_3,CharID_4,CharID_5,CharID_6,ChangeValue,pP1,pP2,pP3,pP4,pP5,pP6,P1,P2,P3,P4,P5,P6,loady,ProgramStartTime,RPST,RPST,BasicWValue0,BasicWValue1,BasicWValue2,BasicWValue3,BWValue0,BWValue1,BWValue2,BWValue3,RMNS,MNS,RMNN,Slot3MN,Slot4MN,Slot5MN,Slot6MN,Slot7MN,Slot8MN,Slot3Magic,Slot4Magic,Slot5Magic,Slot6Magic,Slot7Magic,Slot8Magic,MLimit,incinerateitem,RowNumber,inciNumber = 1,inciItem,CCD,CheckPB,newTime1,nowtime1,nowtime,RCC,pbtalkcheck1,pbtalkcheck2,npcserver
 Gui, -MaximizeBox -MinimizeBox
 Gui, Add, Tab, x0 y4 w690 h670, 설정|Ability|Utility
@@ -2234,7 +2234,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 RegWrite, REG_SZ, HKEY_CURRENT_USER, Software\Nexon\MRMChezam, P1, %Name1%
 RegWrite, REG_SZ, HKEY_CURRENT_USER, Software\Nexon\MRMChezam, P2, %Name2%
@@ -2769,7 +2769,7 @@ GuiControl, , Gui_KOFF, 1
 GuiControl, , Gui_NowState, 점검 대기 %SSS%분
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 Sleep, SSC
 }
 }
@@ -2801,7 +2801,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 }
 IfWinExist,Microsoft Visual C++ Runtime Library
@@ -2811,7 +2811,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 }
 IfWinExist,ahk_exe WerFault.exe
@@ -2822,7 +2822,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 }
 IfWinExist, ahk_pid %jPID%
@@ -2838,7 +2838,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 }
 IfWinExist,ahk_pid %jPID%
@@ -3081,7 +3081,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 GuiControl, , Gui_NowState, 체력이 %NowHP%가 되어 강제 종료 합니다.
 Gui_Enable()
@@ -3099,7 +3099,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 Step = 10000
 return
@@ -3111,7 +3111,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 if(Step = 17 or step =18)
 {
 Entrance += 1
@@ -3137,7 +3137,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 GuiControl, , Gui_NowState, 설정된 체력에 도달하여 강제 종료합니다.
 Gui_Enable()
@@ -3774,7 +3774,7 @@ GroupAdd, ie_gruop, ahk_exe iexplore.exe
 WinKill, ahk_exe iexplore.exe
 WinKill, ahk_group ie_gruop
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 CountPortal = 0
 countsignal = 0
 MapNumber = 1
@@ -3816,7 +3816,7 @@ GroupAdd, ie_gruop, ahk_exe iexplore.exe
 WinKill, ahk_exe iexplore.exe
 WinKill, ahk_group ie_gruop
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 FileDelete, Mlog.txt
 getNpcidFromFile()
 if(CTC !=rCTC)
@@ -3899,7 +3899,7 @@ if(Step = 2)
 Sleep, 3000
 GuiControl, , Gui_NowState, 실행중
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 pwb.document.querySelector("[alt='게임시작']").click()
 pwb.quit
 Step = 3
@@ -3913,7 +3913,7 @@ IfInString,Patch,일랜시아 서버에 연결할 수 없습니다.
 {
 WinKill, Elancia
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 Step = 5000
 return
 }
@@ -4196,7 +4196,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 GuiControl, , Gui_NowState, 접속 오류로 대기 후 재시작 합니다.
 Sleep, 300000
@@ -5009,7 +5009,7 @@ Step = 14
 if(Step = 14)
 {
 GuiControl, , Gui_NowState, [포남] 움직임 체크 중
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 if(Gui_KON = 1)
 {
 Sleep, 300
@@ -5033,7 +5033,7 @@ Step = 15
 if(Step = 15)
 {
 GuiControl, , Gui_NowState, [포남] 캐릭터 위치 체크 중
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 Get_Pos()
 if(Gui_KON = 1)
 {
@@ -5083,7 +5083,7 @@ if(Step = 17)
 {
 Get_Location()
 GuiControl, , Gui_NowState, [포남] NPC 대화 중
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 Move_NPCTalkForm()
 callid = 1
 if(Gui_KON = 1)
@@ -5277,8 +5277,7 @@ npcidResult := getNpcidFromFile()
 
 if(npcidResult = true)
 {
-Run, *RunAs helan.exe
-WinWait, ahk_exe helan.exe, , 15
+    runHelanExe()
     Step = 20
 }
 else{
@@ -7980,7 +7979,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 Gui_Enable()
 SetTimer, Hunt, Off
@@ -8251,7 +8250,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 Gui_Enable()
 SetTimer, Hunt, Off
@@ -8522,7 +8521,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 Gui_Enable()
 SetTimer, Hunt, Off
@@ -8741,7 +8740,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 Gui_Enable()
 SetTimer, Hunt, Off
@@ -9650,7 +9649,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 Gui_Enable()
 SetTimer, Hunt, Off
@@ -12714,7 +12713,7 @@ IfWinExist,ahk_pid %jPID%
 {
 WinKill, ahk_pid %jPID%
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 }
 RegWrite, REG_SZ, HKEY_CURRENT_USER, Software\Nexon\MRMChezam, P1, %Name1%
 RegWrite, REG_SZ, HKEY_CURRENT_USER, Software\Nexon\MRMChezam, P2, %Name2%
@@ -13142,7 +13141,7 @@ lv_gettext(savefile1,a_index)
 FileAppend, %savefile1%`n, C:\Nexon\Elancia\incipb.ini
 }
 WinKill, ahk_exe MRMSPH.exe
-WinKill, ahk_exe helan.exe
+closeHelanExe()
 ExitApp
 return
 IME_CHECK(WinTitle)
@@ -17883,11 +17882,11 @@ StringMid, GAS, GAS, 7, 11
 return true
 }
 
-; npcCategory = 알파동파, 알파서파, 베타동파, 베타서파, 감마동파, 감마서파
+; npcCategory = 동파, 서파 
 ; npcID = npcID
-setNpcidToFile(ser, npcCategory, npcID){
+setNpcidToFile(server, npcCategory, npcID){
     ;write to file
-    FileAppend, %ser%%npcCategory% = %npcID%`n, c:\log.txt
+    FileAppend, %server%%npcCategory% = %npcID%`n, c:\log.txt
 }
 
 SkinForm(Param1 = "Apply", DLL = "", SkinName = "")
@@ -18436,6 +18435,19 @@ postmessage, 0x101, 37, 21692417, ,%WindowTitle%
 sleep, 1
 }
 }
+}
+
+runHelanExe(){
+if(!helanOn){
+Run, *RunAs helan.exe
+WinWait, ahk_exe helan.exe, , 15
+helanOn=true
+}
+}
+
+closeHelanExe(){
+WinKill, ahk_exe helan.exe
+helanOn = false
 }
 
 ReadMemory(MADDRESS=0, BYTES=4){
