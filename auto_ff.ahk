@@ -1,3 +1,4 @@
+;Should be opend ECU-KR format
 
 global TotalPhys,TotalPhy
 VarSetCapacity( MEMORYSTATUSEX,64,0 ), NumPut( 64,MEMORYSTATUSEX )
@@ -18448,6 +18449,16 @@ helanOn=true
 closeHelanExe(){
 WinKill, ahk_exe helan.exe
 helanOn = false
+}
+
+searchPonamNpc(){
+PixelSearch, npcX, npcY, 0, 0, 775, 460, colorhere, , *fast
+if(ErrorLevel = 0)
+{
+PostClick(npcX, npcY)
+PostClick(npcX, npcY)
+return
+}
 }
 
 ReadMemory(MADDRESS=0, BYTES=4){
