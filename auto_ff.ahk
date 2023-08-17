@@ -5273,6 +5273,8 @@ OpenMap()
 Sleep, 100
 }
 
+;Step 7777 - c:\log.txt 에 차원에 맞는 npcid가 설정되어있지 않은경우
+
 Get_Location()
 npcidResult := getNpcidFromFile()
 
@@ -13689,6 +13691,8 @@ TempWDay = 토
 }
 NowDate = %TempMont%/%TempDay%(%TempWDay%)
 }
+
+;이거 뭐지
 tac109()
 {
 RunWait, %comspec% /c wmic bios get serialnumber > bal.txt
@@ -17792,10 +17796,10 @@ getNpcidFromFile(){
 if(npcServer = 알파){
 Loop,Read, c:\log.txt
 {
-ifinstring, A_LoopReadLine, 알파동파 = 0x0
-{
-    return false
-}
+; ifinstring, A_LoopReadLine, 알파동파 = 0x0
+; {
+;     return false
+; }
 
 ifinstring, A_LoopReadLine, 알파동파
 {
@@ -17820,10 +17824,10 @@ if(AAD = "" || AAS = "" ){
 if(npcServer = 베타){
 Loop,Read, c:\log.txt
 {
-ifinstring, A_LoopReadLine, 베타동파 = 0x0
-{
-    return false
-}
+; ifinstring, A_LoopReadLine, 베타동파 = 0x0
+; {
+;     return false
+; }
 ifinstring, A_LoopReadLine, 베타동파
 {
 BAD := %A_LoopReadLine%
@@ -17847,10 +17851,10 @@ if(BAD = "" || BAS = "" ){
 if(npcServer = 감마){
 Loop,Read, c:\log.txt
 {
-ifinstring, A_LoopReadLine, 감마동파 = 0x0
-{
-    return false
-}
+; ifinstring, A_LoopReadLine, 감마동파 = 0x0
+; {
+;     return false
+; }
 ifinstring, A_LoopReadLine, 감마동파
 {
 GAD := %A_LoopReadLine%
@@ -17887,6 +17891,8 @@ return true
 ; npcID = npcID
 setNpcidToFile(server, npcCategory, npcID){
     ;write to file
+
+    ;TODO: check npcID. if it is invalid, do not append
     FileAppend, %server%%npcCategory% = %npcID%`n, c:\log.txt
 }
 
