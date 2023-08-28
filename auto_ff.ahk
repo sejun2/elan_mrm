@@ -5290,6 +5290,8 @@ else{
 
 if(Step = 7777){
 
+;FIXME [npc이름] 메뉴 명령어를 통해 호출하는것은 oid 를 제대로 받아오지 않아서 
+;다른 방식(ex) pixelsearch and click npc)으로 oid를 셋팅하고 저장하는 방법이 필요함
 GuiControl, , Gui_NowState, [포남] NPCID 수동으로 받는중
    getServer()
   
