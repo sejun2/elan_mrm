@@ -4513,7 +4513,7 @@ Step = 1000
 if(Step = 9)
 {
 GuiControl, , Gui_NowState, [포남] 라깃 사용 중
-value := jelan.write(0x0045D28F, 0xE9, "Char", aOffsets*)
+;value := jelan.write(0x0045D28F, 0xE9, "Char", aOffsets*) ;remove character
 value := jelan.write(0x0045D290, 0x8A, "Char", aOffsets*)
 value := jelan.write(0x0045D291, 0x0A, "Char", aOffsets*)
 value := jelan.write(0x0045D292, 0x00, "Char", aOffsets*)
@@ -18460,9 +18460,11 @@ helanOn = false
 }
 
 searchPonamNpc(){
-PixelSearch, npcX, npcY, 0, 0, 775, 460, colorhere, , *fast
+;CE6D18
+PixelSearch, npcX, npcY, 0, 0, 775, 460, 0xEFA65A, , *fast, RGB
 if(ErrorLevel = 0)
 {
+    MsgBox, FIND PONAM NPC %npcX% %npcY%
 PostClick(npcX, npcY)
 PostClick(npcX, npcY)
 return
@@ -18553,6 +18555,13 @@ bytes := ComObjGet("winmgmts:") .ExecQuery("Select * from Win32_PerfFormattedDat
 byte := bytes/1024
 Return
 }
+F8::
+
+Return
+
+F9::
+searchPonamNpc()
+Return
 F10::
 Check_OID()
 Return
